@@ -1,6 +1,6 @@
 {
   "app": "plusfit",
-  "generated_at": "2026-09-21T10:43:48.577Z",
+  "generated_at": "2026-09-21T10:50:10.376Z",
   "source": {
     "repo": "plusfit-mobile",
     "commit": "ebfaa99"
@@ -2403,9 +2403,9 @@
       "covered": 50
     },
     "actions": {
-      "total": 382,
+      "total": 348,
       "instrumented": 27,
-      "excluded": 137
+      "excluded": 171
     },
     "logic_handlers": {
       "total": 211,

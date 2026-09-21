@@ -1,0 +1,334 @@
+{
+  "app": "demo_app",
+  "generated_at": "2026-09-21T10:50:10.460Z",
+  "source": {
+    "repo": "demo_app",
+    "commit": "701ef6e"
+  },
+  "base_attributes": [
+    "platform",
+    "app_version"
+  ],
+  "user_properties": [
+    "app_version",
+    "birth_date",
+    "gender",
+    "locale",
+    "notifications_enabled",
+    "plan",
+    "platform"
+  ],
+  "events": [
+    {
+      "name": "app_error",
+      "enum": "appError",
+      "domain": "autopilot",
+      "params": [],
+      "call_sites": [
+        {
+          "file": "lib/core/analytics/appmetrica_service.dart",
+          "line": 52
+        }
+      ],
+      "status": "active",
+      "note": "fired by its raw string name, not through the enum"
+    },
+    {
+      "name": "app_opened",
+      "enum": "appOpened",
+      "domain": "autopilot",
+      "params": [],
+      "call_sites": [
+        {
+          "file": "lib/main.dart",
+          "line": 54
+        }
+      ],
+      "status": "active",
+      "funnel": "browse"
+    },
+    {
+      "name": "screen_view",
+      "enum": "screenView",
+      "domain": "autopilot",
+      "params": [],
+      "call_sites": [
+        {
+          "file": "lib/core/analytics/analytics_service.dart",
+          "line": 88
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "name": "details_actions_opened",
+      "enum": "detailsActionsOpened",
+      "domain": "details",
+      "params": [
+        "item_id"
+      ],
+      "call_sites": [
+        {
+          "file": "lib/screens/details_screen.dart",
+          "line": 19
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "name": "details_item_deleted",
+      "enum": "detailsItemDeleted",
+      "domain": "details",
+      "params": [
+        "item_id"
+      ],
+      "call_sites": [
+        {
+          "file": "lib/screens/details_screen.dart",
+          "line": 48
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "name": "details_item_duplicated",
+      "enum": "detailsItemDuplicated",
+      "domain": "details",
+      "params": [
+        "item_id"
+      ],
+      "call_sites": [
+        {
+          "file": "lib/screens/details_screen.dart",
+          "line": 36
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "name": "details_shared",
+      "enum": "detailsShared",
+      "domain": "details",
+      "params": [
+        "item_id"
+      ],
+      "call_sites": [
+        {
+          "file": "lib/screens/details_screen.dart",
+          "line": 12
+        }
+      ],
+      "status": "active",
+      "funnel": "browse"
+    },
+    {
+      "name": "home_counter_incremented",
+      "enum": "homeCounterIncremented",
+      "domain": "home",
+      "params": [
+        "value"
+      ],
+      "call_sites": [
+        {
+          "file": "lib/screens/home_screen.dart",
+          "line": 21
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "name": "home_details_opened",
+      "enum": "homeDetailsOpened",
+      "domain": "home",
+      "params": [
+        "item_id",
+        "source"
+      ],
+      "call_sites": [
+        {
+          "file": "lib/screens/home_screen.dart",
+          "line": 29
+        }
+      ],
+      "status": "active",
+      "funnel": "browse"
+    },
+    {
+      "name": "home_settings_tapped",
+      "enum": "homeSettingsTapped",
+      "domain": "home",
+      "params": [],
+      "call_sites": [
+        {
+          "file": "lib/screens/home_screen.dart",
+          "line": 46
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "name": "session_signed_in",
+      "enum": "sessionSignedIn",
+      "domain": "session",
+      "params": [
+        "method"
+      ],
+      "call_sites": [
+        {
+          "file": "lib/repository/session_repository.dart",
+          "line": 27
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "name": "session_signed_out",
+      "enum": "sessionSignedOut",
+      "domain": "session",
+      "params": [],
+      "call_sites": [
+        {
+          "file": "lib/repository/session_repository.dart",
+          "line": 49
+        }
+      ],
+      "status": "active",
+      "funnel": "sign_out"
+    },
+    {
+      "name": "settings_display_name_submitted",
+      "enum": "settingsDisplayNameSubmitted",
+      "domain": "settings",
+      "params": [
+        "length"
+      ],
+      "call_sites": [
+        {
+          "file": "lib/screens/settings_screen.dart",
+          "line": 51
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "name": "settings_notifications_toggled",
+      "enum": "settingsNotificationsToggled",
+      "domain": "settings",
+      "params": [
+        "enabled"
+      ],
+      "call_sites": [
+        {
+          "file": "lib/screens/settings_screen.dart",
+          "line": 31
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "name": "settings_plan_changed",
+      "enum": "settingsPlanChanged",
+      "domain": "settings",
+      "params": [
+        "plan",
+        "previous_plan"
+      ],
+      "call_sites": [
+        {
+          "file": "lib/screens/settings_screen.dart",
+          "line": 64
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "name": "settings_sign_out_completed",
+      "enum": "settingsSignOutCompleted",
+      "domain": "settings",
+      "params": [
+        "confirmed"
+      ],
+      "call_sites": [
+        {
+          "file": "lib/screens/settings_screen.dart",
+          "line": 104
+        }
+      ],
+      "status": "active",
+      "funnel": "sign_out"
+    },
+    {
+      "name": "settings_sign_out_tapped",
+      "enum": "settingsSignOutTapped",
+      "domain": "settings",
+      "params": [],
+      "call_sites": [
+        {
+          "file": "lib/screens/settings_screen.dart",
+          "line": 80
+        }
+      ],
+      "status": "active",
+      "funnel": "sign_out"
+    }
+  ],
+  "funnels": {
+    "browse": [
+      "app_opened",
+      "home_details_opened",
+      "details_shared"
+    ],
+    "sign_out": [
+      "settings_sign_out_tapped",
+      "settings_sign_out_completed",
+      "session_signed_out"
+    ]
+  },
+  "screens": [
+    {
+      "path": "/",
+      "name": "home"
+    },
+    {
+      "path": "/details/:id",
+      "name": "details"
+    },
+    {
+      "path": "/settings",
+      "name": "settings"
+    },
+    {
+      "path": null,
+      "name": "details_actions_sheet"
+    },
+    {
+      "path": null,
+      "name": "sign_out_dialog"
+    }
+  ],
+  "gaps": [],
+  "coverage": {
+    "routes": {
+      "total": 3,
+      "named": 3
+    },
+    "modals": {
+      "total": 2,
+      "with_route_settings": 2
+    },
+    "screens": {
+      "total": 3,
+      "covered": 3
+    },
+    "actions": {
+      "total": 12,
+      "instrumented": 12,
+      "excluded": 3
+    },
+    "logic_handlers": {
+      "total": 3,
+      "instrumented": 2
+    },
+    "user_models": 1
+  }
+}

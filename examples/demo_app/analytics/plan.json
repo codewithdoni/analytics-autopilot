@@ -1,0 +1,26 @@
+{
+  "events": [
+    { "name": "home_settings_tapped", "domain": "Home", "params": [] },
+    { "name": "home_details_opened", "domain": "Home", "params": ["source", "item_id"] },
+    { "name": "home_counter_incremented", "domain": "Home", "params": ["value"] },
+
+    { "name": "details_shared", "domain": "Details", "params": ["item_id"] },
+    { "name": "details_actions_opened", "domain": "Details", "params": ["item_id"] },
+    { "name": "details_item_duplicated", "domain": "Details", "params": ["item_id"] },
+    { "name": "details_item_deleted", "domain": "Details", "params": ["item_id"] },
+
+    { "name": "settings_notifications_toggled", "domain": "Settings", "params": ["enabled"] },
+    { "name": "settings_display_name_submitted", "domain": "Settings", "params": ["length"] },
+    { "name": "settings_plan_changed", "domain": "Settings", "params": ["plan", "previous_plan"] },
+    { "name": "settings_sign_out_tapped", "domain": "Settings", "params": [] },
+    { "name": "settings_sign_out_completed", "domain": "Settings", "params": ["confirmed"] },
+
+    { "name": "session_signed_in", "domain": "Session", "params": ["method"] },
+    { "name": "session_signed_out", "domain": "Session", "params": [] }
+  ],
+  "user_properties": ["plan", "locale", "notifications_enabled"],
+  "funnels": {
+    "browse": ["app_opened", "home_details_opened", "details_shared"],
+    "sign_out": ["settings_sign_out_tapped", "settings_sign_out_completed", "session_signed_out"]
+  }
+}

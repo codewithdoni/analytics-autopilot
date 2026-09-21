@@ -30,7 +30,13 @@ const VERBS = {
   onDestinationSelected: 'tab_selected', onSelectionChanged: 'selection_changed', onPageChanged: 'page_changed', onReorder: 'reordered', onDeleted: 'deleted',
   onStepTapped: 'step_tapped', onStepContinue: 'step_continued', onStepCancel: 'step_cancelled', onRatingUpdate: 'rated', onAccept: 'accepted',
 };
+// `() => Navigator.of(ctx).pop(true)`, `() { Navigator.pop(context); }`, `context.pop()`.
+const POP_ONLY_RE = /^\(\s*\)\s*(?:=>|\{)\s*(?:Navigator\s*\.\s*(?:of\s*\([^()]*\)\s*\.\s*)?pop|[\w.]*context\s*\.\s*pop|Get\s*\.\s*back)\s*\([^()]*\)\s*;?\s*\}?\s*$/;
+
 const NOT_FUNCTIONS = new Set(['if', 'for', 'while', 'switch', 'catch', 'return', 'await', 'setState', 'print', 'debugPrint', 'assert', 'super', 'this']);
+
+const OBSERVER_PARAM_RE = /\b(?:observers|navigatorObservers)\s*:/;
+const OBSERVER_BUNDLE_RE = /\b(?:observers|navigatorObservers)\s*:\s*[\w.]*navigatorObservers\b|\b(?:observers|navigatorObservers)\s*:\s*\[[^\]]*\.\.\.[\w.]*navigatorObservers\b/;
 
 const MODAL_RE = /(?<![\w.])(showModalBottomSheet|showDialog|showCupertinoModalPopup|showCupertinoDialog|showGeneralDialog|showBarModalBottomSheet|showMaterialModalBottomSheet|showCupertinoModalBottomSheet|showAdaptiveDialog)\s*(?:<[^<>()]*(?:<[^<>()]*>)?[^<>()]*>)?\s*\(/g;
 const IMPERATIVE_ROUTE_RE = /(?<![\w.])(MaterialPageRoute|CupertinoPageRoute|PageRouteBuilder|MaterialWithModalsPageRoute|CupertinoModalPopupRoute)\s*(?:<[^<>()]*(?:<[^<>()]*>)?[^<>()]*>)?\s*\(/g;
@@ -275,6 +281,10 @@ export function scanProject(root) {
         excluded.push({ ...base, why: `pass-through of ${expr} — instrument the call site that supplies it` });
         continue;
       }
+      if (POP_ONLY_RE.test(expr)) {
+        excluded.push({ ...base, why: 'closes the route / returns a dialog result — track the outcome where the result is awaited' });
+        continue;
+      }
       if (handler === 'onChanged' && TEXT_INPUTS.has(widget)) {
         excluded.push({ ...base, why: 'per-keystroke text change — track onSubmitted or the form submit instead (PII + noise)' });
         continue;
@@ -402,8 +412,9 @@ export function scanProject(root) {
     dep_appmetrica: hasDep('appmetrica_plugin'),
     facade: findFile(/\bclass\s+Analytics\b[^{]*\{[\s\S]*?\bstatic\s+Future<void>\s+track\s*\(/),
     events_enum: findFile(/\benum\s+AnalyticsEvent\b/),
-    firebase_observer: anyMask(/\bFirebaseAnalyticsObserver\b/) && anyMask(/\b(?:observers|navigatorObservers)\s*:/),
-    appmetrica_observer: files.some((f) => /\b(?:Analytics|AppMetrica)NavigatorObserver\s*\(/.test(f.mask) && /\b(?:observers|navigatorObservers)\s*:/.test(f.mask)),
+    // Registered directly, or through a getter that returns both observers.
+    firebase_observer: anyMask(OBSERVER_BUNDLE_RE) || (anyMask(/\bFirebaseAnalyticsObserver\s*\(/) && anyMask(OBSERVER_PARAM_RE)),
+    appmetrica_observer: anyMask(OBSERVER_BUNDLE_RE) || files.some((f) => /\b(?:Analytics|AppMetrica)NavigatorObserver\s*\(/.test(f.mask) && OBSERVER_PARAM_RE.test(f.mask)),
     firebase_init: anyMask(/\bFirebase\s*\.\s*initializeApp\s*\(/),
     appmetrica_activate: anyMask(/\bAppMetrica\s*\.\s*activate\s*\(/),
     zone_guard: anyMask(/\brunZonedGuarded\s*[<(]/),

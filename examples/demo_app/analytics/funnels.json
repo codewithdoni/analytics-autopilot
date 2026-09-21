@@ -1,0 +1,12 @@
+{
+  "browse": [
+    "app_opened",
+    "home_details_opened",
+    "details_shared"
+  ],
+  "sign_out": [
+    "settings_sign_out_tapped",
+    "settings_sign_out_completed",
+    "session_signed_out"
+  ]
+}

@@ -1,19 +1,29 @@
 import 'package:flutter/material.dart';
 
+import '../core/analytics/analytics.dart';
+import '../core/analytics/analytics_event.dart';
+
 class DetailsScreen extends StatelessWidget {
   const DetailsScreen({required this.id, super.key});
 
   final String id;
 
   void _share(BuildContext context) {
+    Analytics.track(AnalyticsEvent.detailsShared, parameters: {'item_id': id});
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(content: Text('Shared item $id')),
     );
   }
 
   void _showMoreActions(BuildContext context) {
+    Analytics.track(
+      AnalyticsEvent.detailsActionsOpened,
+      parameters: {'item_id': id},
+    );
     showModalBottomSheet<void>(
       context: context,
+      // Named so the navigator observers report a screen_view for the sheet.
+      routeSettings: const RouteSettings(name: 'details_actions_sheet'),
       builder: (sheetContext) {
         return SafeArea(
           child: Column(
@@ -23,6 +33,10 @@ class DetailsScreen extends StatelessWidget {
                 leading: const Icon(Icons.copy_outlined),
                 title: const Text('Duplicate'),
                 onTap: () {
+                  Analytics.track(
+                    AnalyticsEvent.detailsItemDuplicated,
+                    parameters: {'item_id': id},
+                  );
                   Navigator.of(sheetContext).pop();
                   _notify(context, 'Duplicated item $id');
                 },
@@ -31,6 +45,10 @@ class DetailsScreen extends StatelessWidget {
                 leading: const Icon(Icons.delete_outline),
                 title: const Text('Delete'),
                 onTap: () {
+                  Analytics.track(
+                    AnalyticsEvent.detailsItemDeleted,
+                    parameters: {'item_id': id},
+                  );
                   Navigator.of(sheetContext).pop();
                   _notify(context, 'Deleted item $id');
                 },

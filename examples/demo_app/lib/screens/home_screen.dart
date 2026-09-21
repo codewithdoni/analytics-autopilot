@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
+import '../core/analytics/analytics.dart';
+import '../core/analytics/analytics_event.dart';
+
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
@@ -15,10 +18,19 @@ class _HomeScreenState extends State<HomeScreen> {
 
   void _increment() {
     setState(() => _counter++);
+    Analytics.track(
+      AnalyticsEvent.homeCounterIncremented,
+      parameters: {'value': _counter},
+    );
   }
 
-  void _openItem(int index) {
-    context.go('/details/$index');
+  /// [source] tells the two entry points apart: the list and the main button.
+  void _openItem(String id, {required String source}) {
+    Analytics.track(
+      AnalyticsEvent.homeDetailsOpened,
+      parameters: {'source': source, 'item_id': id},
+    );
+    context.go('/details/$id');
   }
 
   @override
@@ -30,7 +42,10 @@ class _HomeScreenState extends State<HomeScreen> {
           IconButton(
             icon: const Icon(Icons.settings),
             tooltip: 'Settings',
-            onPressed: () => context.go('/settings'),
+            onPressed: () {
+              Analytics.track(AnalyticsEvent.homeSettingsTapped);
+              context.go('/settings');
+            },
           ),
         ],
       ),
@@ -48,7 +63,7 @@ class _HomeScreenState extends State<HomeScreen> {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16),
             child: ElevatedButton(
-              onPressed: () => context.go('/details/42'),
+              onPressed: () => _openItem('42', source: 'cta'),
               child: const Text('Open details'),
             ),
           ),
@@ -62,7 +77,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   leading: const Icon(Icons.article_outlined),
                   title: Text('Item $index'),
                   subtitle: Text('Opens /details/$index'),
-                  onTap: () => _openItem(index),
+                  onTap: () => _openItem('$index', source: 'list'),
                 );
               },
             ),

@@ -6,7 +6,7 @@ import { existsSync, readFileSync } from 'node:fs';
 import path from 'node:path';
 import { findFunctionBody, lineOf, matchBracket, readDart, snake, walkDart } from './dart.mjs';
 import { validateEventName } from './naming.mjs';
-import { scanProject } from './scan-core.mjs';
+import { namedArgs, scanProject } from './scan-core.mjs';
 
 const domainSlug = (comment) =>
   snake(
@@ -160,21 +160,36 @@ export function buildCatalog({ root, app, enumName = 'AnalyticsEvent', funnelsFi
     events.push({ name, enum: null, domain: snake(name.split('_')[0] ?? 'raw') || 'raw', params: [...r.params].sort(), call_sites: r.call_sites.slice(0, 12), status: r.bypass ? 'bypasses_fanout' : 'raw' });
   }
 
-  // Base attributes: keys of the map built by initializeBaseAttributes()/setBaseAttributes().
+  // Base attributes and user properties, read where they are SET (usually the
+  // bootstrap and the profile-sync call sites, not the analytics layer itself).
   const baseAttributes = [];
   const userProperties = new Set();
+  const mapKeysAfter = (file, index) => {
+    const open = file.mask.indexOf('{', index);
+    if (open === -1) return [];
+    const close = matchBracket(file.mask, open);
+    if (close === -1) return [];
+    return [...file.code.slice(open, close).matchAll(/(['"])([a-z][a-z0-9_]*)\1\s*:/g)].map((k) => k[2]);
+  };
   for (const file of files) {
-    for (const fn of ['initializeBaseAttributes', 'setBaseAttributes']) {
-      const body = serviceFiles.has(file.rel) ? findFunctionBody(file.mask, fn) : null;
-      if (body) for (const k of file.code.slice(body.start, body.end).matchAll(/(['"])([a-z][a-z0-9_]*)\1\s*:/g)) if (!baseAttributes.includes(k[2])) baseAttributes.push(k[2]);
-    }
-    for (const m of file.code.matchAll(/setUserProperty\s*\(\s*name\s*:\s*(['"])([^'"]+)\1/g)) if (!serviceFiles.has(file.rel)) userProperties.add(m[2]);
-    for (const m of file.code.matchAll(/AppMetrica(?:String|Number|Boolean|Counter)Attribute\s*\.\s*with\w+\(\s*(['"])([^'"]+)\1/g)) userProperties.add(m[2]);
-    const sync = /\bsetUserProperties\s*\(\s*\{/.exec(file.mask);
-    if (sync && !serviceFiles.has(file.rel)) {
-      const open = file.mask.indexOf('{', sync.index);
+    for (const m of file.mask.matchAll(/\b(?:initializeBaseAttributes|setBaseAttributes)\s*\(/g)) {
+      const isDefinition = /(?:Future(?:<[^>]*>)?|void)\s+$/.test(file.mask.slice(Math.max(0, m.index - 30), m.index));
+      if (isDefinition) continue;
+      const open = m.index + m[0].length - 1;
       const close = matchBracket(file.mask, open);
-      for (const k of file.code.slice(open, close === -1 ? open : close).matchAll(/(['"])([a-z][a-z0-9_]*)\1\s*:/g)) userProperties.add(k[2]);
+      // Either setBaseAttributes({'k': v}) or initializeBaseAttributes(isPremium: …).
+      const keys = [...mapKeysAfter(file, m.index), ...(close === -1 ? [] : [...namedArgs(file.mask, open, close).keys()].map(snake))];
+      for (const key of keys) if (!baseAttributes.includes(key)) baseAttributes.push(key);
+    }
+    if (serviceFiles.has(file.rel)) continue;
+    for (const m of file.code.matchAll(/setUserProperty\s*\(\s*name\s*:\s*(['"])([^'"]+)\1/g)) userProperties.add(m[2]);
+    for (const m of file.code.matchAll(/AppMetrica(?:String|Number|Boolean|Counter)Attribute\s*\.\s*with(?:Value|Delta)\(\s*(['"])([^'"]+)\1/g)) userProperties.add(m[2]);
+    for (const m of file.mask.matchAll(/\b(?:setUserProperties|traits)\s*[:(]\s*(?=\{)/g)) for (const key of mapKeysAfter(file, m.index)) userProperties.add(key);
+    // Predefined attributes of the profile-sync helper.
+    for (const m of file.mask.matchAll(/UserProfileSync\s*\.\s*(?:sync|syncAnonymous)\s*\(/g)) {
+      const close = matchBracket(file.mask, file.mask.indexOf('(', m.index));
+      if (close === -1) continue;
+      for (const k of file.mask.slice(m.index, close).matchAll(/\b(locale|appVersion|platform|notificationsEnabled|gender|birthDate)\s*:/g)) userProperties.add(snake(k[1]));
     }
   }
 
