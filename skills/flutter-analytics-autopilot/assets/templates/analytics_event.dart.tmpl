@@ -1,0 +1,16 @@
+/// Typed event taxonomy. Raw values are snake_case, at most 40 characters.
+///
+/// GENERATED between the markers by `scripts/gen_events.mjs` from
+/// `analytics/plan.json` — edit the plan, not this block.
+enum AnalyticsEvent {
+  // <autopilot:events>
+  // System
+  appOpened('app_opened'),
+  appError('app_error'),
+  screenView('screen_view');
+  // </autopilot:events>
+
+  const AnalyticsEvent(this.rawValue);
+
+  final String rawValue;
+}

@@ -1,0 +1,39 @@
+# secrets — never commit
+.env
+.env.*
+!.env.example
+secrets/
+*service-account*.json
+*firebase-sa*.json
+**/lib/core/secrets/.env
+**/google-services.json
+**/GoogleService-Info.plist
+
+# runtime work dirs (clones, caches, exports)
+apps/bot/.work/
+.cache/
+
+# node
+node_modules/
+*.tsbuildinfo
+npm-debug.log*
+
+# flutter (examples)
+examples/**/.dart_tool/
+examples/**/build/
+examples/**/.flutter-plugins
+examples/**/.flutter-plugins-dependencies
+examples/**/ios/Pods/
+examples/**/ios/.symlinks/
+examples/**/ios/Flutter/Generated.xcconfig
+examples/**/ios/Flutter/flutter_export_environment.sh
+examples/**/android/.gradle/
+examples/**/android/local.properties
+examples/**/*.g.dart
+examples/**/analytics-inventory.json
+examples/**/coverage.json
+
+# os / editors
+.DS_Store
+.idea/
+.vscode/

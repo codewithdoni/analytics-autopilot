@@ -1,0 +1,9 @@
+{
+  "name": "@autopilot/bot",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "@autopilot/analytics-core": "*"
+  }
+}

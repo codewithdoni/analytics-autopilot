@@ -1,0 +1,2416 @@
+{
+  "app": "plusfit",
+  "generated_at": "2026-09-21T10:43:48.577Z",
+  "source": {
+    "repo": "plusfit-mobile",
+    "commit": "ebfaa99"
+  },
+  "base_attributes": [
+    "is_premium",
+    "locale",
+    "app_version",
+    "platform",
+    "user_id",
+    "onboarding_complete"
+  ],
+  "user_properties": [],
+  "events": [
+    {
+      "name": "coach_card_tapped",
+      "enum": "coachCardTapped",
+      "domain": "ai_coach",
+      "params": [
+        "has_premium",
+        "has_question",
+        "source"
+      ],
+      "call_sites": [
+        {
+          "file": "lib/features/ai/presentation/widget/ai_coach_card.dart",
+          "line": 48
+        },
+        {
+          "file": "lib/features/water_tracker/presentation/screen/water_tracker_screen.dart",
+          "line": 75
+        }
+      ],
+      "status": "active",
+      "funnel": "coach"
+    },
+    {
+      "name": "coach_chat_created",
+      "enum": "coachChatCreated",
+      "domain": "ai_coach",
+      "params": [],
+      "call_sites": [
+        {
+          "file": "lib/features/ai/presentation/bloc/chat/chat_bloc.dart",
+          "line": 203
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "name": "coach_chat_deleted",
+      "enum": "coachChatDeleted",
+      "domain": "ai_coach",
+      "params": [],
+      "call_sites": [
+        {
+          "file": "lib/features/ai/presentation/bloc/coach_chats/coach_chats_bloc.dart",
+          "line": 336
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "name": "coach_chat_opened",
+      "enum": "coachChatOpened",
+      "domain": "ai_coach",
+      "params": [
+        "has_meal_context"
+      ],
+      "call_sites": [
+        {
+          "file": "lib/features/ai/presentation/screen/chat_screen.dart",
+          "line": 144
+        }
+      ],
+      "status": "active",
+      "funnel": "coach"
+    },
+    {
+      "name": "coach_chat_pin_toggled",
+      "enum": "coachChatPinToggled",
+      "domain": "ai_coach",
+      "params": [
+        "pinned"
+      ],
+      "call_sites": [
+        {
+          "file": "lib/features/ai/presentation/bloc/coach_chats/coach_chats_bloc.dart",
+          "line": 287
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "name": "coach_chat_renamed",
+      "enum": "coachChatRenamed",
+      "domain": "ai_coach",
+      "params": [],
+      "call_sites": [
+        {
+          "file": "lib/features/ai/presentation/bloc/coach_chats/coach_chats_bloc.dart",
+          "line": 256
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "name": "coach_chat_switched",
+      "enum": "coachChatSwitched",
+      "domain": "ai_coach",
+      "params": [],
+      "call_sites": [
+        {
+          "file": "lib/features/ai/presentation/screen/chat_screen.dart",
+          "line": 526
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "name": "coach_history_opened",
+      "enum": "coachHistoryOpened",
+      "domain": "ai_coach",
+      "params": [],
+      "call_sites": [
+        {
+          "file": "lib/features/ai/presentation/screen/chat_screen.dart",
+          "line": 60
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "name": "coach_history_searched",
+      "enum": "coachHistorySearched",
+      "domain": "ai_coach",
+      "params": [],
+      "call_sites": [
+        {
+          "file": "lib/features/ai/presentation/widget/coach_history_panel.dart",
+          "line": 122
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "name": "coach_image_attached",
+      "enum": "coachImageAttached",
+      "domain": "ai_coach",
+      "params": [],
+      "call_sites": [
+        {
+          "file": "lib/features/ai/presentation/bloc/chat/chat_bloc.dart",
+          "line": 392
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "name": "coach_meal_asked",
+      "enum": "coachMealAsked",
+      "domain": "ai_coach",
+      "params": [
+        "has_premium"
+      ],
+      "call_sites": [
+        {
+          "file": "lib/features/detail/presentation/screen/details_screen.dart",
+          "line": 1070
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "name": "coach_suggestion_tapped",
+      "enum": "coachSuggestionTapped",
+      "domain": "ai_coach",
+      "params": [],
+      "call_sites": [
+        {
+          "file": "lib/features/ai/presentation/screen/chat_screen.dart",
+          "line": 492
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "name": "coach_upsell_cta",
+      "enum": "coachUpsellCta",
+      "domain": "ai_coach",
+      "params": [
+        "source"
+      ],
+      "call_sites": [
+        {
+          "file": "lib/features/ai/presentation/widget/coach_upsell_sheet.dart",
+          "line": 39
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "name": "coach_upsell_shown",
+      "enum": "coachUpsellShown",
+      "domain": "ai_coach",
+      "params": [],
+      "call_sites": [
+        {
+          "file": "lib/features/ai/presentation/widget/coach_upsell_sheet.dart",
+          "line": 24
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "name": "health_permission_denied",
+      "enum": "healthPermissionDenied",
+      "domain": "apple_health_health_connect",
+      "params": [],
+      "call_sites": [
+        {
+          "file": "lib/features/auth/presentation/screen/onboarding_steps/45_connect_device_screen.dart",
+          "line": 40
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "name": "health_permission_granted",
+      "enum": "healthPermissionGranted",
+      "domain": "apple_health_health_connect",
+      "params": [],
+      "call_sites": [
+        {
+          "file": "lib/features/auth/presentation/screen/onboarding_steps/45_connect_device_screen.dart",
+          "line": 39
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "name": "health_permission_requested",
+      "enum": "healthPermissionRequested",
+      "domain": "apple_health_health_connect",
+      "params": [
+        "source"
+      ],
+      "call_sites": [
+        {
+          "file": "lib/features/auth/presentation/screen/onboarding_steps/45_connect_device_screen.dart",
+          "line": 24
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "name": "account_deleted",
+      "enum": "accountDeleted",
+      "domain": "auth",
+      "params": [
+        "user_id"
+      ],
+      "call_sites": [
+        {
+          "file": "lib/features/profile/presentation/bloc/profile/profile_bloc.dart",
+          "line": 148
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "name": "auth_attempt",
+      "enum": "authAttempt",
+      "domain": "auth",
+      "params": [
+        "action",
+        "method"
+      ],
+      "call_sites": [
+        {
+          "file": "lib/features/auth/presentation/bloc/auth/auth_bloc.dart",
+          "line": 453
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "name": "auth_failed",
+      "enum": "authFailed",
+      "domain": "auth",
+      "params": [
+        "action",
+        "error_message",
+        "error_type",
+        "method"
+      ],
+      "call_sites": [
+        {
+          "file": "lib/features/auth/presentation/bloc/auth/auth_bloc.dart",
+          "line": 482
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "name": "auth_screen_shown",
+      "enum": "authScreenShown",
+      "domain": "auth",
+      "params": [],
+      "call_sites": [],
+      "status": "dead",
+      "note": "declared but never fired"
+    },
+    {
+      "name": "auth_succeeded",
+      "enum": "authSucceeded",
+      "domain": "auth",
+      "params": [
+        "method",
+        "user_id"
+      ],
+      "call_sites": [
+        {
+          "file": "lib/features/auth/presentation/bloc/auth/auth_bloc.dart",
+          "line": 463
+        }
+      ],
+      "status": "active",
+      "funnel": "activation"
+    },
+    {
+      "name": "email_otp_requested",
+      "enum": "emailOtpRequested",
+      "domain": "auth",
+      "params": [
+        "action"
+      ],
+      "call_sites": [
+        {
+          "file": "lib/features/auth/presentation/bloc/auth/auth_bloc.dart",
+          "line": 372
+        },
+        {
+          "file": "lib/features/auth/presentation/bloc/auth/auth_bloc.dart",
+          "line": 441
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "name": "email_otp_verified",
+      "enum": "emailOtpVerified",
+      "domain": "auth",
+      "params": [],
+      "call_sites": [
+        {
+          "file": "lib/features/auth/presentation/bloc/auth/auth_bloc.dart",
+          "line": 404
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "name": "sign_in",
+      "enum": "signIn",
+      "domain": "auth",
+      "params": [
+        "method"
+      ],
+      "call_sites": [],
+      "status": "dead",
+      "note": "only reachable through logSignIn(), which nothing calls"
+    },
+    {
+      "name": "sign_up",
+      "enum": "signUp",
+      "domain": "auth",
+      "params": [
+        "method"
+      ],
+      "call_sites": [],
+      "status": "dead",
+      "note": "only reachable through logSignUp(), which nothing calls"
+    },
+    {
+      "name": "user_logged_out",
+      "enum": "userLoggedOut",
+      "domain": "auth",
+      "params": [
+        "user_id"
+      ],
+      "call_sites": [
+        {
+          "file": "lib/features/profile/presentation/bloc/profile/profile_bloc.dart",
+          "line": 116
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "name": "chat_message_sent",
+      "enum": "chatMessageSent",
+      "domain": "chat",
+      "params": [
+        "has_food_context",
+        "has_image",
+        "is_new_chat",
+        "message_length"
+      ],
+      "call_sites": [
+        {
+          "file": "lib/features/ai/presentation/bloc/chat/chat_bloc.dart",
+          "line": 169
+        }
+      ],
+      "status": "active",
+      "funnel": "coach"
+    },
+    {
+      "name": "favorite_toggled",
+      "enum": "favoriteToggled",
+      "domain": "food",
+      "params": [
+        "food_id",
+        "is_favorite"
+      ],
+      "call_sites": [
+        {
+          "file": "lib/features/detail/presentation/bloc/food_details/food_details_bloc.dart",
+          "line": 307
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "name": "food_analyze_failed",
+      "enum": "foodAnalyzeFailed",
+      "domain": "food",
+      "params": [
+        "error_type",
+        "food_id",
+        "reason",
+        "source",
+        "upload_succeeded",
+        "voice"
+      ],
+      "call_sites": [
+        {
+          "file": "lib/features/home/presentation/bloc/analyze/analyze_bloc.dart",
+          "line": 465
+        },
+        {
+          "file": "lib/features/home/presentation/bloc/analyze/analyze_bloc.dart",
+          "line": 481
+        },
+        {
+          "file": "lib/features/home/presentation/bloc/analyze/analyze_bloc.dart",
+          "line": 591
+        },
+        {
+          "file": "lib/features/home/presentation/bloc/analyze/analyze_bloc.dart",
+          "line": 622
+        },
+        {
+          "file": "lib/features/home/presentation/bloc/analyze/analyze_bloc.dart",
+          "line": 675
+        },
+        {
+          "file": "lib/features/home/presentation/bloc/analyze/analyze_bloc.dart",
+          "line": 693
+        },
+        {
+          "file": "lib/features/home/presentation/bloc/analyze/analyze_bloc.dart",
+          "line": 812
+        },
+        {
+          "file": "lib/features/home/presentation/bloc/analyze/analyze_bloc.dart",
+          "line": 827
+        },
+        {
+          "file": "lib/features/home/presentation/bloc/analyze/analyze_bloc.dart",
+          "line": 950
+        },
+        {
+          "file": "lib/features/home/presentation/bloc/analyze/analyze_bloc.dart",
+          "line": 967
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "name": "food_analyzed",
+      "enum": "foodAnalyzed",
+      "domain": "food",
+      "params": [
+        "barcode",
+        "calories",
+        "food_name",
+        "food_not_found",
+        "portions",
+        "source"
+      ],
+      "call_sites": [
+        {
+          "file": "lib/features/home/presentation/bloc/analyze/analyze_bloc.dart",
+          "line": 444
+        },
+        {
+          "file": "lib/features/home/presentation/bloc/analyze/analyze_bloc.dart",
+          "line": 792
+        },
+        {
+          "file": "lib/features/home/presentation/bloc/analyze/analyze_bloc.dart",
+          "line": 932
+        }
+      ],
+      "status": "active",
+      "funnel": "activation"
+    },
+    {
+      "name": "food_edited",
+      "enum": "foodEdited",
+      "domain": "food",
+      "params": [
+        "count",
+        "food_id"
+      ],
+      "call_sites": [
+        {
+          "file": "lib/features/detail/presentation/bloc/food_details/food_details_bloc.dart",
+          "line": 258
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "name": "food_from_prompt_analyzed",
+      "enum": "foodFromPromptAnalyzed",
+      "domain": "food",
+      "params": [],
+      "call_sites": [
+        {
+          "file": "lib/features/home/presentation/bloc/analyze/analyze_bloc.dart",
+          "line": 562
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "name": "food_logged",
+      "enum": "foodLogged",
+      "domain": "food",
+      "params": [
+        "count",
+        "food_id",
+        "source"
+      ],
+      "call_sites": [
+        {
+          "file": "lib/features/detail/presentation/bloc/food_details/food_details_bloc.dart",
+          "line": 248
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "name": "food_nutrition_fixed",
+      "enum": "foodNutritionFixed",
+      "domain": "food",
+      "params": [
+        "calories",
+        "food_id",
+        "food_name"
+      ],
+      "call_sites": [
+        {
+          "file": "lib/features/home/presentation/bloc/analyze/analyze_bloc.dart",
+          "line": 660
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "name": "food_photo_analysis_completed",
+      "enum": null,
+      "domain": "food",
+      "params": [
+        "task_id"
+      ],
+      "call_sites": [
+        {
+          "file": "lib/core/services/background_upload/background_upload_service.dart",
+          "line": 244
+        }
+      ],
+      "status": "raw"
+    },
+    {
+      "name": "food_photo_upload_completed",
+      "enum": null,
+      "domain": "food",
+      "params": [
+        "task_id"
+      ],
+      "call_sites": [
+        {
+          "file": "lib/core/services/background_upload/background_upload_service.dart",
+          "line": 386
+        }
+      ],
+      "status": "raw"
+    },
+    {
+      "name": "food_photo_upload_started",
+      "enum": null,
+      "domain": "food",
+      "params": [
+        "task_id"
+      ],
+      "call_sites": [
+        {
+          "file": "lib/core/services/background_upload/background_upload_service.dart",
+          "line": 184
+        }
+      ],
+      "status": "raw"
+    },
+    {
+      "name": "food_photo_uploaded",
+      "enum": "foodPhotoUploaded",
+      "domain": "food",
+      "params": [
+        "error_type",
+        "success"
+      ],
+      "call_sites": [
+        {
+          "file": "lib/features/home/presentation/bloc/analyze/analyze_bloc.dart",
+          "line": 317
+        },
+        {
+          "file": "lib/features/home/presentation/bloc/analyze/analyze_bloc.dart",
+          "line": 324
+        }
+      ],
+      "status": "active",
+      "funnel": "food_scan"
+    },
+    {
+      "name": "food_removed",
+      "enum": "foodRemoved",
+      "domain": "food",
+      "params": [
+        "count",
+        "food_id",
+        "reason"
+      ],
+      "call_sites": [
+        {
+          "file": "lib/features/detail/presentation/bloc/food_details/food_details_bloc.dart",
+          "line": 264
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "name": "food_scan_started",
+      "enum": "foodScanStarted",
+      "domain": "food",
+      "params": [
+        "has_prompt",
+        "source"
+      ],
+      "call_sites": [
+        {
+          "file": "lib/features/home/presentation/bloc/analyze/analyze_bloc.dart",
+          "line": 272
+        }
+      ],
+      "status": "active",
+      "funnel": "activation"
+    },
+    {
+      "name": "food_scanned",
+      "enum": "foodScanned",
+      "domain": "food",
+      "params": [
+        "source"
+      ],
+      "call_sites": [],
+      "status": "dead",
+      "note": "only reachable through logFoodScanned(), which nothing calls"
+    },
+    {
+      "name": "food_upload_live_surface_analysis_completed",
+      "enum": null,
+      "domain": "food",
+      "params": [
+        "task_id"
+      ],
+      "call_sites": [
+        {
+          "file": "lib/core/services/background_upload/upload_live_surface_service.dart",
+          "line": 368
+        }
+      ],
+      "status": "raw"
+    },
+    {
+      "name": "food_upload_live_surface_failed",
+      "enum": null,
+      "domain": "food",
+      "params": [
+        "task_id"
+      ],
+      "call_sites": [
+        {
+          "file": "lib/core/services/background_upload/upload_live_surface_service.dart",
+          "line": 373
+        }
+      ],
+      "status": "raw"
+    },
+    {
+      "name": "food_upload_live_surface_fallback",
+      "enum": null,
+      "domain": "food",
+      "params": [
+        "platform",
+        "task_id"
+      ],
+      "call_sites": [
+        {
+          "file": "lib/core/services/background_upload/upload_live_surface_service.dart",
+          "line": 595
+        }
+      ],
+      "status": "raw"
+    },
+    {
+      "name": "food_upload_live_surface_started",
+      "enum": null,
+      "domain": "food",
+      "params": [
+        "platform",
+        "task_id"
+      ],
+      "call_sites": [
+        {
+          "file": "lib/core/services/background_upload/upload_live_surface_service.dart",
+          "line": 317
+        }
+      ],
+      "status": "raw"
+    },
+    {
+      "name": "food_upload_live_surface_unsupported",
+      "enum": null,
+      "domain": "food",
+      "params": [
+        "platform",
+        "task_id"
+      ],
+      "call_sites": [
+        {
+          "file": "lib/core/services/background_upload/upload_live_surface_service.dart",
+          "line": 581
+        }
+      ],
+      "status": "raw"
+    },
+    {
+      "name": "food_upload_retried",
+      "enum": "foodUploadRetried",
+      "domain": "food",
+      "params": [
+        "retry_count",
+        "upload_type"
+      ],
+      "call_sites": [
+        {
+          "file": "lib/features/home/presentation/bloc/analyze/analyze_bloc.dart",
+          "line": 1179
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "name": "food_voice_analyzed",
+      "enum": "foodVoiceAnalyzed",
+      "domain": "food",
+      "params": [],
+      "call_sites": [
+        {
+          "file": "lib/features/home/presentation/bloc/analyze/analyze_bloc.dart",
+          "line": 561
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "name": "meal_relogged",
+      "enum": "mealRelogged",
+      "domain": "food",
+      "params": [
+        "days_ago",
+        "food_id",
+        "meal_tag",
+        "source"
+      ],
+      "call_sites": [
+        {
+          "file": "lib/features/home/presentation/bloc/analyze/analyze_bloc.dart",
+          "line": 1044
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "name": "meal_tag_changed",
+      "enum": "mealTagChanged",
+      "domain": "food",
+      "params": [
+        "food_id",
+        "meal_tag"
+      ],
+      "call_sites": [
+        {
+          "file": "lib/features/detail/presentation/bloc/food_details/food_details_bloc.dart",
+          "line": 353
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "name": "recent_meals_opened",
+      "enum": "recentMealsOpened",
+      "domain": "food",
+      "params": [],
+      "call_sites": [
+        {
+          "file": "lib/features/home/presentation/widget/recent_meals_overlay.dart",
+          "line": 97
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "name": "bottom_nav_tapped",
+      "enum": "bottomNavTapped",
+      "domain": "hero_ctas_engagement_taps",
+      "params": [
+        "from_index",
+        "tab_index",
+        "tab_name"
+      ],
+      "call_sites": [
+        {
+          "file": "lib/features/home/presentation/screen/main_screen.dart",
+          "line": 293
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "name": "paywall_close_clicked",
+      "enum": "paywallCloseClicked",
+      "domain": "hero_ctas_engagement_taps",
+      "params": [],
+      "call_sites": [
+        {
+          "file": "lib/features/premium/presentation/screen/premium_screen.dart",
+          "line": 125
+        }
+      ],
+      "status": "active",
+      "funnel": "upsell"
+    },
+    {
+      "name": "home_widget_added",
+      "enum": "homeWidgetAdded",
+      "domain": "home_screen_widgets",
+      "params": [],
+      "call_sites": [],
+      "status": "dead",
+      "note": "declared but never fired"
+    },
+    {
+      "name": "home_widget_push_failed",
+      "enum": "homeWidgetPushFailed",
+      "domain": "home_screen_widgets",
+      "params": [
+        "error",
+        "reason"
+      ],
+      "call_sites": [
+        {
+          "file": "lib/core/services/home_widget/home_widget_service.dart",
+          "line": 451
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "name": "home_widget_removed",
+      "enum": "homeWidgetRemoved",
+      "domain": "home_screen_widgets",
+      "params": [],
+      "call_sites": [],
+      "status": "dead",
+      "note": "declared but never fired"
+    },
+    {
+      "name": "home_widget_snapshot_pushed",
+      "enum": "homeWidgetSnapshotPushed",
+      "domain": "home_screen_widgets",
+      "params": [
+        "reason",
+        "schema_version",
+        "widget_count"
+      ],
+      "call_sites": [
+        {
+          "file": "lib/core/services/home_widget/home_widget_service.dart",
+          "line": 440
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "name": "home_widget_tapped",
+      "enum": "homeWidgetTapped",
+      "domain": "home_screen_widgets",
+      "params": [
+        "meal_tag",
+        "route"
+      ],
+      "call_sites": [
+        {
+          "file": "lib/core/services/home_widget/home_widget_service.dart",
+          "line": 496
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "name": "home_widget_unsupported",
+      "enum": "homeWidgetUnsupported",
+      "domain": "home_screen_widgets",
+      "params": [
+        "error",
+        "platform"
+      ],
+      "call_sites": [
+        {
+          "file": "lib/core/services/home_widget/home_widget_service.dart",
+          "line": 277
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "name": "live_surface_*",
+      "enum": null,
+      "domain": "live",
+      "params": [
+        "kind",
+        "platform",
+        "reason"
+      ],
+      "call_sites": [
+        {
+          "file": "lib/core/services/background_upload/upload_live_surface_service.dart",
+          "line": 612
+        }
+      ],
+      "status": "raw"
+    },
+    {
+      "name": "mood_logged",
+      "enum": "moodLogged",
+      "domain": "mood",
+      "params": [
+        "is_backfill",
+        "mood"
+      ],
+      "call_sites": [
+        {
+          "file": "lib/features/home/presentation/bloc/mood_tracker/mood_tracker_bloc.dart",
+          "line": 62
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "name": "screen_view",
+      "enum": "screenView",
+      "domain": "navigation",
+      "params": [
+        "screen_class",
+        "screen_name"
+      ],
+      "call_sites": [
+        {
+          "file": "lib/core/services/analytics_service.dart",
+          "line": 143
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "name": "onboarding_completed",
+      "enum": "onboardingCompleted",
+      "domain": "onboarding",
+      "params": [
+        "accomplishments_count",
+        "diet_type",
+        "gender",
+        "goal",
+        "height_cm",
+        "language",
+        "stopping_goals_count",
+        "target_weight_kg",
+        "training_frequency",
+        "weight_kg"
+      ],
+      "call_sites": [
+        {
+          "file": "lib/features/auth/presentation/bloc/onboarding/onboarding_bloc.dart",
+          "line": 128
+        }
+      ],
+      "status": "active",
+      "funnel": "onboarding"
+    },
+    {
+      "name": "onboarding_data_captured",
+      "enum": "onboardingDataCaptured",
+      "domain": "onboarding",
+      "params": [
+        "selection_type",
+        "step_id",
+        "value"
+      ],
+      "call_sites": [
+        {
+          "file": "lib/features/auth/presentation/bloc/onboarding/onboarding_bloc.dart",
+          "line": 678
+        }
+      ],
+      "status": "active",
+      "funnel": "onboarding"
+    },
+    {
+      "name": "onboarding_started",
+      "enum": "onboardingStarted",
+      "domain": "onboarding",
+      "params": [],
+      "call_sites": [
+        {
+          "file": "lib/features/auth/presentation/screen/onboarding_screen.dart",
+          "line": 157
+        }
+      ],
+      "status": "active",
+      "funnel": "onboarding"
+    },
+    {
+      "name": "onboarding_step",
+      "enum": "onboardingStepLogged",
+      "domain": "onboarding",
+      "params": [
+        "step_number"
+      ],
+      "call_sites": [],
+      "status": "dead",
+      "note": "only reachable through logOnboardingStep(), which nothing calls"
+    },
+    {
+      "name": "onboarding_step_shown",
+      "enum": "onboardingStepShown",
+      "domain": "onboarding",
+      "params": [
+        "index",
+        "step_id",
+        "total_steps"
+      ],
+      "call_sites": [
+        {
+          "file": "lib/features/auth/presentation/screen/onboarding_screen.dart",
+          "line": 297
+        }
+      ],
+      "status": "active",
+      "funnel": "onboarding"
+    },
+    {
+      "name": "food_card_opened",
+      "enum": "foodCardOpened",
+      "domain": "paywall_upsell_funnel",
+      "params": [
+        "calories",
+        "food_id",
+        "food_name"
+      ],
+      "call_sites": [
+        {
+          "file": "lib/features/home/presentation/screen/home_screen.dart",
+          "line": 107
+        },
+        {
+          "file": "lib/features/home/presentation/widget/food_card.dart",
+          "line": 38
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "name": "notification_permission_denied",
+      "enum": "notificationPermissionDenied",
+      "domain": "paywall_upsell_funnel",
+      "params": [
+        "action",
+        "source"
+      ],
+      "call_sites": [
+        {
+          "file": "lib/features/auth/presentation/screen/onboarding_steps/35_notifications_setup_screen.dart",
+          "line": 103
+        },
+        {
+          "file": "lib/features/home/presentation/widget/notification_permission_sheet.dart",
+          "line": 78
+        },
+        {
+          "file": "lib/features/home/presentation/widget/notification_permission_sheet.dart",
+          "line": 145
+        },
+        {
+          "file": "lib/features/home/presentation/widget/notification_permission_sheet.dart",
+          "line": 126
+        },
+        {
+          "file": "lib/features/profile/presentation/bloc/tracking_reminders/tracking_reminders_cubit.dart",
+          "line": 296
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "name": "notification_permission_granted",
+      "enum": "notificationPermissionGranted",
+      "domain": "paywall_upsell_funnel",
+      "params": [],
+      "call_sites": [
+        {
+          "file": "lib/features/auth/presentation/screen/onboarding_steps/35_notifications_setup_screen.dart",
+          "line": 101
+        },
+        {
+          "file": "lib/features/home/presentation/widget/notification_permission_sheet.dart",
+          "line": 125
+        },
+        {
+          "file": "lib/features/profile/presentation/bloc/tracking_reminders/tracking_reminders_cubit.dart",
+          "line": 295
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "name": "notification_permission_requested",
+      "enum": "notificationPermissionRequested",
+      "domain": "paywall_upsell_funnel",
+      "params": [
+        "action",
+        "source"
+      ],
+      "call_sites": [
+        {
+          "file": "lib/features/auth/presentation/screen/onboarding_steps/35_notifications_setup_screen.dart",
+          "line": 91
+        },
+        {
+          "file": "lib/features/home/presentation/widget/notification_permission_sheet.dart",
+          "line": 106
+        },
+        {
+          "file": "lib/features/home/presentation/widget/notification_permission_sheet.dart",
+          "line": 117
+        },
+        {
+          "file": "lib/features/profile/presentation/bloc/tracking_reminders/tracking_reminders_cubit.dart",
+          "line": 280
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "name": "scan_fab_tapped",
+      "enum": "scanFabTapped",
+      "domain": "paywall_upsell_funnel",
+      "params": [
+        "has_premium",
+        "meal_tag",
+        "source"
+      ],
+      "call_sites": [
+        {
+          "file": "lib/core/utils/navigation_utils.dart",
+          "line": 168
+        },
+        {
+          "file": "lib/features/home/presentation/screen/main_screen.dart",
+          "line": 883
+        }
+      ],
+      "status": "active",
+      "funnel": "food_scan"
+    },
+    {
+      "name": "upsell_home_card_shown",
+      "enum": "upsellHomeCardShown",
+      "domain": "paywall_upsell_funnel",
+      "params": [],
+      "call_sites": [
+        {
+          "file": "lib/features/home/presentation/widget/home_offer_card.dart",
+          "line": 51
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "name": "upsell_home_card_tapped",
+      "enum": "upsellHomeCardTapped",
+      "domain": "paywall_upsell_funnel",
+      "params": [
+        "discount_percent"
+      ],
+      "call_sites": [
+        {
+          "file": "lib/features/home/presentation/widget/home_offer_card.dart",
+          "line": 86
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "name": "upsell_offer_claim_clicked",
+      "enum": "upsellOfferClaimClicked",
+      "domain": "paywall_upsell_funnel",
+      "params": [
+        "discount_percent",
+        "plan_id"
+      ],
+      "call_sites": [
+        {
+          "file": "lib/features/premium/presentation/screen/upsell_offer_screen.dart",
+          "line": 103
+        }
+      ],
+      "status": "active",
+      "funnel": "upsell"
+    },
+    {
+      "name": "upsell_offer_close_clicked",
+      "enum": "upsellOfferCloseClicked",
+      "domain": "paywall_upsell_funnel",
+      "params": [],
+      "call_sites": [
+        {
+          "file": "lib/features/premium/presentation/screen/upsell_offer_screen.dart",
+          "line": 80
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "name": "upsell_offer_expired",
+      "enum": "upsellOfferExpired",
+      "domain": "paywall_upsell_funnel",
+      "params": [],
+      "call_sites": [
+        {
+          "file": "lib/features/premium/presentation/screen/upsell_offer_screen.dart",
+          "line": 61
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "name": "upsell_offer_shown",
+      "enum": "upsellOfferShown",
+      "domain": "paywall_upsell_funnel",
+      "params": [],
+      "call_sites": [
+        {
+          "file": "lib/features/premium/presentation/screen/upsell_offer_screen.dart",
+          "line": 40
+        }
+      ],
+      "status": "active",
+      "funnel": "upsell"
+    },
+    {
+      "name": "upsell_retention_back_to_offer",
+      "enum": "upsellRetentionBackToOffer",
+      "domain": "paywall_upsell_funnel",
+      "params": [],
+      "call_sites": [
+        {
+          "file": "lib/features/premium/presentation/screen/upsell_offer_screen.dart",
+          "line": 96
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "name": "upsell_retention_skipped",
+      "enum": "upsellRetentionSkipped",
+      "domain": "paywall_upsell_funnel",
+      "params": [],
+      "call_sites": [
+        {
+          "file": "lib/features/premium/presentation/screen/upsell_offer_screen.dart",
+          "line": 91
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "name": "upsell_spin_dismissed",
+      "enum": "upsellSpinDismissed",
+      "domain": "paywall_upsell_funnel",
+      "params": [],
+      "call_sites": [
+        {
+          "file": "lib/features/premium/presentation/screen/upsell_spin_screen.dart",
+          "line": 107
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "name": "upsell_spin_shown",
+      "enum": "upsellSpinShown",
+      "domain": "paywall_upsell_funnel",
+      "params": [],
+      "call_sites": [
+        {
+          "file": "lib/features/premium/presentation/screen/upsell_spin_screen.dart",
+          "line": 52
+        }
+      ],
+      "status": "active",
+      "funnel": "upsell"
+    },
+    {
+      "name": "upsell_spin_started",
+      "enum": "upsellSpinStarted",
+      "domain": "paywall_upsell_funnel",
+      "params": [],
+      "call_sites": [
+        {
+          "file": "lib/features/premium/presentation/screen/upsell_spin_screen.dart",
+          "line": 81
+        }
+      ],
+      "status": "active",
+      "funnel": "upsell"
+    },
+    {
+      "name": "external_payment_initiated",
+      "enum": "externalPaymentInitiated",
+      "domain": "premium_paywall",
+      "params": [
+        "has_promo",
+        "method",
+        "plan_id"
+      ],
+      "call_sites": [
+        {
+          "file": "lib/features/premium/presentation/bloc/premium_bloc.dart",
+          "line": 621
+        }
+      ],
+      "status": "active",
+      "funnel": "external_payment"
+    },
+    {
+      "name": "external_payment_verified",
+      "enum": "externalPaymentVerified",
+      "domain": "premium_paywall",
+      "params": [
+        "method",
+        "plan_id"
+      ],
+      "call_sites": [
+        {
+          "file": "lib/features/premium/presentation/bloc/premium_bloc.dart",
+          "line": 654
+        }
+      ],
+      "status": "active",
+      "funnel": "external_payment"
+    },
+    {
+      "name": "free_premium_registered",
+      "enum": "freePremiumRegistered",
+      "domain": "premium_paywall",
+      "params": [
+        "plan_id",
+        "promocode_id"
+      ],
+      "call_sites": [
+        {
+          "file": "lib/features/premium/presentation/bloc/premium_bloc.dart",
+          "line": 707
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "name": "payment_method_selected",
+      "enum": "paymentMethodSelected",
+      "domain": "premium_paywall",
+      "params": [
+        "method"
+      ],
+      "call_sites": [
+        {
+          "file": "lib/features/premium/presentation/bloc/premium_bloc.dart",
+          "line": 577
+        }
+      ],
+      "status": "active",
+      "funnel": "external_payment"
+    },
+    {
+      "name": "paywall_product_selected",
+      "enum": "paywallProductSelected",
+      "domain": "premium_paywall",
+      "params": [
+        "duration_days",
+        "product_id"
+      ],
+      "call_sites": [
+        {
+          "file": "lib/features/premium/presentation/bloc/premium_bloc.dart",
+          "line": 343
+        }
+      ],
+      "status": "active",
+      "funnel": "paywall"
+    },
+    {
+      "name": "paywall_purchase_confirmed",
+      "enum": "paywallPurchaseConfirmed",
+      "domain": "premium_paywall",
+      "params": [
+        "paywall",
+        "price",
+        "product_id",
+        "transaction_id"
+      ],
+      "call_sites": [
+        {
+          "file": "lib/features/premium/presentation/bloc/premium_bloc.dart",
+          "line": 395
+        }
+      ],
+      "status": "active",
+      "funnel": "paywall"
+    },
+    {
+      "name": "paywall_purchase_failed",
+      "enum": "paywallPurchaseFailed",
+      "domain": "premium_paywall",
+      "params": [
+        "error_type",
+        "method",
+        "paywall",
+        "product_id"
+      ],
+      "call_sites": [
+        {
+          "file": "lib/features/premium/presentation/bloc/premium_bloc.dart",
+          "line": 436
+        },
+        {
+          "file": "lib/features/premium/presentation/bloc/premium_bloc.dart",
+          "line": 664
+        },
+        {
+          "file": "lib/features/premium/presentation/bloc/premium_bloc.dart",
+          "line": 716
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "name": "paywall_purchase_initiated",
+      "enum": "paywallPurchaseInitiated",
+      "domain": "premium_paywall",
+      "params": [
+        "paywall",
+        "price",
+        "product_id"
+      ],
+      "call_sites": [
+        {
+          "file": "lib/features/premium/presentation/bloc/premium_bloc.dart",
+          "line": 378
+        }
+      ],
+      "status": "active",
+      "funnel": "paywall"
+    },
+    {
+      "name": "paywall_restore_failed",
+      "enum": "paywallRestoreFailed",
+      "domain": "premium_paywall",
+      "params": [
+        "error_type"
+      ],
+      "call_sites": [
+        {
+          "file": "lib/features/premium/presentation/bloc/premium_bloc.dart",
+          "line": 469
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "name": "paywall_restore_initiated",
+      "enum": "paywallRestoreInitiated",
+      "domain": "premium_paywall",
+      "params": [],
+      "call_sites": [
+        {
+          "file": "lib/features/premium/presentation/bloc/premium_bloc.dart",
+          "line": 457
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "name": "paywall_restore_succeeded",
+      "enum": "paywallRestoreSucceeded",
+      "domain": "premium_paywall",
+      "params": [],
+      "call_sites": [
+        {
+          "file": "lib/features/premium/presentation/bloc/premium_bloc.dart",
+          "line": 461
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "name": "paywall_shown",
+      "enum": "paywallShown",
+      "domain": "premium_paywall",
+      "params": [
+        "default_plan_duration_days",
+        "default_product_id",
+        "offers_count",
+        "plans_count"
+      ],
+      "call_sites": [
+        {
+          "file": "lib/features/premium/presentation/screen/premium_screen.dart",
+          "line": 84
+        }
+      ],
+      "status": "active",
+      "funnel": "activation"
+    },
+    {
+      "name": "paywall_telegram_support_tapped",
+      "enum": "paywallTelegramSupportTapped",
+      "domain": "premium_paywall",
+      "params": [
+        "has_promocode",
+        "payment_method",
+        "paywall",
+        "plan_id",
+        "support_url_host"
+      ],
+      "call_sites": [
+        {
+          "file": "lib/features/premium/presentation/screen/payment_screen.dart",
+          "line": 662
+        },
+        {
+          "file": "lib/features/premium/presentation/widget/payment_methods_sheet.dart",
+          "line": 345
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "name": "paywall_viewed",
+      "enum": "paywallViewed",
+      "domain": "premium_paywall",
+      "params": [
+        "source"
+      ],
+      "call_sites": [],
+      "status": "dead",
+      "note": "only reachable through logPaywallViewed(), which nothing calls"
+    },
+    {
+      "name": "promo_code_attempted",
+      "enum": "promoCodeAttempted",
+      "domain": "premium_paywall",
+      "params": [
+        "plan_id",
+        "source"
+      ],
+      "call_sites": [
+        {
+          "file": "lib/features/premium/presentation/bloc/premium_bloc.dart",
+          "line": 498
+        },
+        {
+          "file": "lib/features/premium/presentation/bloc/premium_bloc.dart",
+          "line": 740
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "name": "promo_code_failed",
+      "enum": "promoCodeFailed",
+      "domain": "premium_paywall",
+      "params": [
+        "error_type",
+        "reason",
+        "source"
+      ],
+      "call_sites": [
+        {
+          "file": "lib/features/premium/presentation/bloc/premium_bloc.dart",
+          "line": 510
+        },
+        {
+          "file": "lib/features/premium/presentation/bloc/premium_bloc.dart",
+          "line": 768
+        },
+        {
+          "file": "lib/features/premium/presentation/bloc/premium_bloc.dart",
+          "line": 775
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "name": "promo_code_redeemed",
+      "enum": "promoCodeRedeemed",
+      "domain": "premium_paywall",
+      "params": [
+        "plan_id",
+        "source"
+      ],
+      "call_sites": [
+        {
+          "file": "lib/features/premium/presentation/bloc/premium_bloc.dart",
+          "line": 530
+        },
+        {
+          "file": "lib/features/premium/presentation/bloc/premium_bloc.dart",
+          "line": 760
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "name": "subscription_purchased",
+      "enum": "subscriptionPurchased",
+      "domain": "premium_paywall",
+      "params": [
+        "currency",
+        "price",
+        "product_id",
+        "transaction_id"
+      ],
+      "call_sites": [],
+      "status": "dead",
+      "note": "only reachable through logSubscriptionPurchased(), track(), which nothing calls"
+    },
+    {
+      "name": "trial_started",
+      "enum": "trialStarted",
+      "domain": "premium_paywall",
+      "params": [
+        "product_id"
+      ],
+      "call_sites": [],
+      "status": "dead",
+      "note": "only reachable through logTrialStarted(), which nothing calls"
+    },
+    {
+      "name": "avatar_updated",
+      "enum": "avatarUpdated",
+      "domain": "profile_settings",
+      "params": [],
+      "call_sites": [],
+      "status": "dead",
+      "note": "declared but never fired"
+    },
+    {
+      "name": "language_changed",
+      "enum": "languageChanged",
+      "domain": "profile_settings",
+      "params": [
+        "from",
+        "to"
+      ],
+      "call_sites": [
+        {
+          "file": "lib/core/services/language_service.dart",
+          "line": 87
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "name": "profile_updated",
+      "enum": "profileUpdated",
+      "domain": "profile_settings",
+      "params": [
+        "fields_changed",
+        "fields_count"
+      ],
+      "call_sites": [
+        {
+          "file": "lib/features/profile/presentation/bloc/profile/profile_bloc.dart",
+          "line": 174
+        },
+        {
+          "file": "lib/features/profile/presentation/screen/profile_details_screen.dart",
+          "line": 296
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "name": "reminder_time_updated",
+      "enum": "reminderTimeUpdated",
+      "domain": "profile_settings",
+      "params": [
+        "hour",
+        "minute",
+        "reminder_id"
+      ],
+      "call_sites": [
+        {
+          "file": "lib/features/profile/presentation/bloc/tracking_reminders/tracking_reminders_cubit.dart",
+          "line": 238
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "name": "reminder_toggled",
+      "enum": "reminderToggled",
+      "domain": "profile_settings",
+      "params": [
+        "enabled",
+        "reminder_id"
+      ],
+      "call_sites": [
+        {
+          "file": "lib/features/profile/presentation/bloc/tracking_reminders/tracking_reminders_cubit.dart",
+          "line": 270
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "name": "theme_changed",
+      "enum": "themeChanged",
+      "domain": "profile_settings",
+      "params": [],
+      "call_sites": [],
+      "status": "dead",
+      "note": "declared but never fired"
+    },
+    {
+      "name": "food_shared",
+      "enum": "foodShared",
+      "domain": "sharing",
+      "params": [],
+      "call_sites": [],
+      "status": "dead",
+      "note": "declared but never fired"
+    },
+    {
+      "name": "share",
+      "enum": "shared",
+      "domain": "sharing",
+      "params": [
+        "content_type",
+        "item_id",
+        "method"
+      ],
+      "call_sites": [
+        {
+          "file": "lib/core/services/analytics_service.dart",
+          "line": 341
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "name": "sleep_goal_updated",
+      "enum": "sleepGoalUpdated",
+      "domain": "sleep",
+      "params": [
+        "goal_minutes"
+      ],
+      "call_sites": [
+        {
+          "file": "lib/features/sleep_tracker/presentation/bloc/sleep_tracker_bloc.dart",
+          "line": 343
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "name": "sleep_history_cleared",
+      "enum": "sleepHistoryCleared",
+      "domain": "sleep",
+      "params": [],
+      "call_sites": [
+        {
+          "file": "lib/features/sleep_tracker/presentation/bloc/sleep_tracker_bloc.dart",
+          "line": 383
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "name": "sleep_logged",
+      "enum": "sleepLogged",
+      "domain": "sleep",
+      "params": [
+        "hours",
+        "is_backfill",
+        "quality",
+        "source"
+      ],
+      "call_sites": [
+        {
+          "file": "lib/features/sleep_tracker/presentation/bloc/sleep_tracker_bloc.dart",
+          "line": 229
+        },
+        {
+          "file": "lib/features/sleep_tracker/presentation/bloc/sleep_tracker_bloc.dart",
+          "line": 314
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "name": "sleep_session_started",
+      "enum": "sleepSessionStarted",
+      "domain": "sleep",
+      "params": [],
+      "call_sites": [
+        {
+          "file": "lib/features/sleep_tracker/presentation/bloc/sleep_tracker_bloc.dart",
+          "line": 205
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "name": "app_error",
+      "enum": "appError",
+      "domain": "system",
+      "params": [],
+      "call_sites": [
+        {
+          "file": "lib/core/services/analytics/appmetrica_service.dart",
+          "line": 110
+        }
+      ],
+      "status": "active",
+      "note": "fired by its raw string name, not through the enum"
+    },
+    {
+      "name": "app_opened",
+      "enum": "appOpened",
+      "domain": "system",
+      "params": [],
+      "call_sites": [
+        {
+          "file": "lib/core/services/analytics_service.dart",
+          "line": 326
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "name": "tracking_reminder_notification_scheduled",
+      "enum": null,
+      "domain": "tracking",
+      "params": [
+        "has_body",
+        "has_title"
+      ],
+      "call_sites": [
+        {
+          "file": "lib/features/profile/domain/service/tracking_reminder_bootstrapper.dart",
+          "line": 247
+        }
+      ],
+      "status": "raw"
+    },
+    {
+      "name": "tracking_reminder_notification_skipped_empty_copy",
+      "enum": null,
+      "domain": "tracking",
+      "params": [],
+      "call_sites": [
+        {
+          "file": "lib/features/profile/domain/service/tracking_reminder_bootstrapper.dart",
+          "line": 217
+        }
+      ],
+      "status": "raw"
+    },
+    {
+      "name": "tracking_reminder_opened",
+      "enum": null,
+      "domain": "tracking",
+      "params": [
+        "experiment_group",
+        "locale",
+        "reminder_id",
+        "scenario_id",
+        "variant_key",
+        "weekday"
+      ],
+      "call_sites": [
+        {
+          "file": "lib/core/push_notification/push_notification_manager.dart",
+          "line": 371
+        }
+      ],
+      "status": "bypasses_fanout"
+    },
+    {
+      "name": "tracking_reminder_scenario_resolved",
+      "enum": null,
+      "domain": "tracking",
+      "params": [
+        "config_version",
+        "experiment_group",
+        "locale",
+        "scenario_id"
+      ],
+      "call_sites": [
+        {
+          "file": "lib/features/profile/domain/service/reminder_experiment_service.dart",
+          "line": 106
+        }
+      ],
+      "status": "raw"
+    },
+    {
+      "name": "water_cup_size_updated",
+      "enum": "waterCupSizeUpdated",
+      "domain": "water",
+      "params": [
+        "cup_size_ml"
+      ],
+      "call_sites": [
+        {
+          "file": "lib/features/water_tracker/presentation/bloc/water_tracker_bloc.dart",
+          "line": 212
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "name": "water_goal_updated",
+      "enum": "waterGoalUpdated",
+      "domain": "water",
+      "params": [
+        "goal_ml"
+      ],
+      "call_sites": [
+        {
+          "file": "lib/features/water_tracker/presentation/bloc/water_tracker_bloc.dart",
+          "line": 189
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "name": "water_intake_added",
+      "enum": "waterIntakeAdded",
+      "domain": "water",
+      "params": [
+        "amount_ml",
+        "has_note"
+      ],
+      "call_sites": [
+        {
+          "file": "lib/features/water_tracker/presentation/bloc/water_tracker_bloc.dart",
+          "line": 102
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "name": "water_intake_removed",
+      "enum": "waterIntakeRemoved",
+      "domain": "water",
+      "params": [
+        "intake_id"
+      ],
+      "call_sites": [
+        {
+          "file": "lib/features/water_tracker/presentation/bloc/water_tracker_bloc.dart",
+          "line": 128
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "name": "water_logged",
+      "enum": "waterLogged",
+      "domain": "water",
+      "params": [
+        "amount_ml"
+      ],
+      "call_sites": [],
+      "status": "dead",
+      "note": "only reachable through logWaterIntake(), which nothing calls"
+    },
+    {
+      "name": "weight_deleted",
+      "enum": "weightDeleted",
+      "domain": "weight",
+      "params": [
+        "log_id"
+      ],
+      "call_sites": [
+        {
+          "file": "lib/features/profile/presentation/bloc/weight/weight_bloc.dart",
+          "line": 153
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "name": "weight_goal_updated",
+      "enum": "weightGoalUpdated",
+      "domain": "weight",
+      "params": [
+        "current_weight_kg",
+        "direction",
+        "gain",
+        "lose",
+        "previous_target_kg",
+        "target_weight_kg"
+      ],
+      "call_sites": [
+        {
+          "file": "lib/features/profile/presentation/screen/edit/edit_weight_goal_screen.dart",
+          "line": 103
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "name": "weight_log_photo_attached",
+      "enum": "weightLogPhotoAttached",
+      "domain": "weight",
+      "params": [],
+      "call_sites": [
+        {
+          "file": "lib/features/profile/presentation/bloc/weight/weight_bloc.dart",
+          "line": 94
+        },
+        {
+          "file": "lib/features/profile/presentation/bloc/weight/weight_bloc.dart",
+          "line": 124
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "name": "weight_log_photo_removed",
+      "enum": "weightLogPhotoRemoved",
+      "domain": "weight",
+      "params": [],
+      "call_sites": [
+        {
+          "file": "lib/features/profile/presentation/bloc/weight/weight_bloc.dart",
+          "line": 114
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "name": "weight_logged",
+      "enum": "weightLogged",
+      "domain": "weight",
+      "params": [
+        "has_image",
+        "weight_kg"
+      ],
+      "call_sites": [
+        {
+          "file": "lib/features/profile/presentation/bloc/weight/weight_bloc.dart",
+          "line": 86
+        }
+      ],
+      "status": "active"
+    }
+  ],
+  "funnels": {
+    "onboarding": [
+      "onboarding_started",
+      "onboarding_step_shown",
+      "onboarding_data_captured",
+      "onboarding_completed"
+    ],
+    "activation": [
+      "onboarding_completed",
+      "auth_succeeded",
+      "paywall_shown",
+      "food_scan_started",
+      "food_analyzed"
+    ],
+    "paywall": [
+      "paywall_shown",
+      "paywall_product_selected",
+      "paywall_purchase_initiated",
+      "paywall_purchase_confirmed"
+    ],
+    "upsell": [
+      "paywall_close_clicked",
+      "upsell_spin_shown",
+      "upsell_spin_started",
+      "upsell_offer_shown",
+      "upsell_offer_claim_clicked"
+    ],
+    "external_payment": [
+      "payment_method_selected",
+      "external_payment_initiated",
+      "external_payment_verified"
+    ],
+    "food_scan": [
+      "scan_fab_tapped",
+      "food_scan_started",
+      "food_photo_uploaded",
+      "food_analyzed"
+    ],
+    "coach": [
+      "coach_card_tapped",
+      "coach_chat_opened",
+      "chat_message_sent"
+    ]
+  },
+  "screens": [
+    {
+      "path": "/",
+      "name": "/"
+    },
+    {
+      "path": "/onboarding",
+      "name": "/onboarding"
+    },
+    {
+      "path": "/auth",
+      "name": "/auth"
+    },
+    {
+      "path": "/connection-error",
+      "name": "/connection-error"
+    },
+    {
+      "path": "/notifications",
+      "name": "/notifications"
+    },
+    {
+      "path": "/feedback",
+      "name": "/feedback"
+    },
+    {
+      "path": "/feature-requests",
+      "name": "/feature-requests"
+    },
+    {
+      "path": "/feature-request-detail",
+      "name": "/feature-request-detail"
+    },
+    {
+      "path": "/log-food",
+      "name": "/log-food"
+    },
+    {
+      "path": "/scan",
+      "name": "/scan"
+    },
+    {
+      "path": "/voice-log",
+      "name": "/voice-log"
+    },
+    {
+      "path": "/add-comment",
+      "name": "/add-comment"
+    },
+    {
+      "path": "/adjust-goals",
+      "name": "/adjust-goals"
+    },
+    {
+      "path": "/personal-details",
+      "name": "/personal-details"
+    },
+    {
+      "path": "/profile-details",
+      "name": "/profile-details"
+    },
+    {
+      "path": "/edit-dob",
+      "name": "/edit-dob"
+    },
+    {
+      "path": "/edit-gender",
+      "name": "/edit-gender"
+    },
+    {
+      "path": "/edit-weight",
+      "name": "/edit-weight"
+    },
+    {
+      "path": "/edit-height",
+      "name": "/edit-height"
+    },
+    {
+      "path": "/edit-goal",
+      "name": "/edit-goal"
+    },
+    {
+      "path": "/edit-training-frequency",
+      "name": "/edit-training-frequency"
+    },
+    {
+      "path": "/edit-meal-frequency",
+      "name": "/edit-meal-frequency"
+    },
+    {
+      "path": "/bmi-info",
+      "name": "/bmi-info"
+    },
+    {
+      "path": "/delete-account",
+      "name": "/delete-account"
+    },
+    {
+      "path": "/weight-history",
+      "name": "/weight-history"
+    },
+    {
+      "path": "/edit-weight-goal",
+      "name": "/edit-weight-goal"
+    },
+    {
+      "path": "/log-weight",
+      "name": "/log-weight"
+    },
+    {
+      "path": "/about",
+      "name": "/about"
+    },
+    {
+      "path": "/tracking-reminders",
+      "name": "/tracking-reminders"
+    },
+    {
+      "path": "/edit-home-layout",
+      "name": "/edit-home-layout"
+    },
+    {
+      "path": "/subscription-info",
+      "name": "/subscription-info"
+    },
+    {
+      "path": "/ring-colors-explained",
+      "name": "/ring-colors-explained"
+    },
+    {
+      "path": "/food-details",
+      "name": "/food-details"
+    },
+    {
+      "path": "/food-health-score",
+      "name": "/food-health-score"
+    },
+    {
+      "path": "/health-score-how-it-works",
+      "name": "/health-score-how-it-works"
+    },
+    {
+      "path": "/main-health-score",
+      "name": "/main-health-score"
+    },
+    {
+      "path": "/chat",
+      "name": "/chat"
+    },
+    {
+      "path": "/water-tracker",
+      "name": "/water-tracker"
+    },
+    {
+      "path": "/recently-uploaded",
+      "name": "/recently-uploaded"
+    },
+    {
+      "path": "/step-tracker",
+      "name": "/step-tracker"
+    },
+    {
+      "path": "/step-history",
+      "name": "/step-history"
+    },
+    {
+      "path": "/sleep-tracker",
+      "name": "/sleep-tracker"
+    },
+    {
+      "path": "/sleep-history",
+      "name": "/sleep-history"
+    },
+    {
+      "path": "/main/home",
+      "name": "/main/home"
+    },
+    {
+      "path": "/main/analytics",
+      "name": "/main/analytics"
+    },
+    {
+      "path": "/main/profile",
+      "name": "/main/profile"
+    },
+    {
+      "path": "/premium",
+      "name": "/premium"
+    },
+    {
+      "path": "/paywall-spin",
+      "name": "/paywall-spin"
+    },
+    {
+      "path": "/paywall-upsell-offer",
+      "name": "/paywall-upsell-offer"
+    },
+    {
+      "path": "/payment-method",
+      "name": "/payment-method"
+    },
+    {
+      "path": "/404",
+      "name": "/404"
+    }
+  ],
+  "gaps": [
+    "14 declared events are never fired: onboarding_step, auth_screen_shown, sign_in, sign_up, paywall_viewed, trial_started, subscription_purchased, food_scanned, water_logged, avatar_updated, theme_changed, food_shared, home_widget_added, home_widget_removed",
+    "Revenue never reaches GA4: logPurchase is only called from logSubscriptionPurchased(), and nothing calls logSubscriptionPurchased(). GA4 revenue metrics will read 0 — use RevenueCat for money.",
+    "Events sent to one SDK only (they bypass the Firebase+AppMetrica fan-out and carry no base attributes): tracking_reminder_opened",
+    "No user properties / AppMetrica profile attributes are set anywhere, so users cannot be segmented by plan, goal, gender, etc. Demographics only exist as event parameters.",
+    "12 events use raw string names instead of the typed enum (typo-prone, invisible to the enum).",
+    "2 routes have no name, so their screen_view is silently dropped: lib/core/widgets/full_screen_image_preview.dart:28, lib/features/profile/presentation/screen/weight_history_screen.dart:109",
+    "31 bottom sheets / dialogs open without routeSettings, so they never produce a screen_view.",
+    "Event names Firebase will reject: food_upload_live_surface_analysis_completed (longer than 40 characters (Firebase drops it)); tracking_reminder_notification_skipped_empty_copy (longer than 40 characters (Firebase drops it))",
+    "lib/core/secrets/.env is not gitignored: SDK keys can end up in git history."
+  ],
+  "coverage": {
+    "routes": {
+      "total": 53,
+      "named": 51
+    },
+    "modals": {
+      "total": 31,
+      "with_route_settings": 0
+    },
+    "screens": {
+      "total": 106,
+      "covered": 50
+    },
+    "actions": {
+      "total": 382,
+      "instrumented": 27,
+      "excluded": 137
+    },
+    "logic_handlers": {
+      "total": 211,
+      "instrumented": 47
+    },
+    "user_models": 3
+  }
+}

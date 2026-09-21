@@ -1,0 +1,4 @@
+interface:
+  display_name: "Flutter Analytics Autopilot"
+  short_description: "Instrument a Flutter app end to end: routes, screens, actions, user profiles"
+  default_prompt: "Use $flutter-analytics-autopilot to instrument this Flutter app with Firebase Analytics and AppMetrica, then show me the coverage report."

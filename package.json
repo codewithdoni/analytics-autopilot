@@ -1,0 +1,39 @@
+{
+  "name": "analytics-autopilot",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "An analytics engineer that lives in Telegram, plus an Agent Skill that instruments every screen and action of a Flutter app in one prompt.",
+  "license": "MIT",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "bot": "tsx watch --env-file-if-exists=.env apps/bot/src/index.ts",
+    "bot:start": "tsx --env-file-if-exists=.env apps/bot/src/index.ts",
+    "ask": "tsx --env-file-if-exists=.env apps/bot/src/cli.ts",
+    "smoke": "tsx --env-file-if-exists=.env apps/bot/src/smoke.ts",
+    "selfcheck": "tsx apps/bot/src/selfcheck.ts",
+    "catalog": "node scripts/build-catalog.mjs",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "tsx --test \"packages/**/*.test.ts\" \"apps/**/*.test.ts\" && node --test \"skills/**/*.test.mjs\" \"scripts/**/*.test.mjs\"",
+    "skill:install": "bash skills/flutter-analytics-autopilot/install.sh"
+  },
+  "dependencies": {
+    "@google-analytics/data": "7.1.0",
+    "@openai/agents": "0.18.0",
+    "google-auth-library": "^11.0.2",
+    "grammy": "^1.46.0",
+    "node-cron": "^4.6.0",
+    "zod": "^4.6.2"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "tsx": "^4.23.13",
+    "typescript": "^5.9.0"
+  }
+}

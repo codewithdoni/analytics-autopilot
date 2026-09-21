@@ -1,0 +1,68 @@
+// Reference bootstrap. Merge this shape into the app's main.dart — do not
+// paste it over existing initialisation (DI, localisation, splash…).
+import 'dart:async';
+
+import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/foundation.dart';
+import 'package:flutter/widgets.dart';
+import 'package:{{PACKAGE}}/core/analytics/analytics.dart';
+import 'package:{{PACKAGE}}/core/analytics/analytics_event.dart';
+import 'package:{{PACKAGE}}/core/analytics/analytics_service.dart';
+import 'package:{{PACKAGE}}/core/analytics/appmetrica_service.dart';
+import 'package:{{PACKAGE}}/core/analytics/user_profile_sync.dart';
+// import 'package:{{PACKAGE}}/firebase_options.dart'; // after `flutterfire configure`
+
+/// True once `flutterfire configure` has produced firebase_options.dart.
+/// Flip it (or pass --dart-define=FIREBASE_CONFIGURED=true) when Firebase is set up.
+const kFirebaseConfigured = bool.fromEnvironment('FIREBASE_CONFIGURED');
+
+void main() {
+  runZonedGuarded(
+    () async {
+      WidgetsFlutterBinding.ensureInitialized();
+
+      // Critical path: only what the first frame needs.
+      if (kFirebaseConfigured) {
+        await _safe('Firebase', () async {
+          await Firebase.initializeApp(
+            // options: DefaultFirebaseOptions.currentPlatform,
+          );
+        }, timeout: 8);
+      }
+
+      runApp(const MyApp()); // ← the app's existing root widget
+
+      // Deferred: never delays the first frame; one failure never blocks the rest.
+      unawaited(_deferredBootstrap());
+    },
+    (error, stackTrace) {
+      if (kDebugMode) debugPrint('Uncaught: $error\n$stackTrace');
+      AppMetricaService.instance.reportError(error, stackTrace);
+    },
+  );
+}
+
+Future<void> _deferredBootstrap() async {
+  await _safe('AppMetrica', AppMetricaService.instance.activate, timeout: 5);
+
+  AnalyticsService.instance.setBaseAttributes({
+    'platform': defaultTargetPlatform.name,
+    'app_version': const String.fromEnvironment('APP_VERSION'),
+    // 'locale': ..., 'is_premium': ..., 'user_id': ...
+  });
+  await UserProfileSync.syncAnonymous(platform: defaultTargetPlatform.name);
+  await Analytics.track(AnalyticsEvent.appOpened);
+}
+
+/// Run one bootstrap task with a timeout; log instead of throwing.
+Future<void> _safe(
+  String name,
+  Future<void> Function() task, {
+  required int timeout,
+}) async {
+  try {
+    await task().timeout(Duration(seconds: timeout));
+  } catch (e) {
+    debugPrint('Bootstrap: $name failed: $e');
+  }
+}

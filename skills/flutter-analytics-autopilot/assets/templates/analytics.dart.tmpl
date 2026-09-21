@@ -1,0 +1,74 @@
+import 'package:flutter/foundation.dart';
+import 'package:{{PACKAGE}}/core/analytics/analytics_event.dart';
+import 'package:{{PACKAGE}}/core/analytics/analytics_service.dart';
+
+/// The ONLY analytics API call sites use.
+///
+/// Every method swallows its own errors, so call sites never wrap these in
+/// try/catch and analytics can never break a user flow:
+///
+/// ```dart
+/// Analytics.track(AnalyticsEvent.homeSaveTapped, parameters: {'item_count': 3});
+/// ```
+class Analytics {
+  Analytics._();
+
+  /// Fire a typed event to every sink (Firebase Analytics + AppMetrica).
+  static Future<void> track(
+    AnalyticsEvent event, {
+    Map<String, Object?>? parameters,
+  }) async {
+    try {
+      await AnalyticsService.instance.track(event, parameters: parameters);
+    } catch (e) {
+      debugPrint('Analytics: failed to track ${event.rawValue}: $e');
+    }
+  }
+
+  /// Report a screen to AppMetrica. Firebase gets screens from its own
+  /// navigator observer, so this avoids double-counting there.
+  static Future<void> trackScreenView(String screenName) async {
+    try {
+      await AnalyticsService.instance.trackScreenView(screenName);
+    } catch (e) {
+      debugPrint('Analytics: failed to track screen $screenName: $e');
+    }
+  }
+
+  /// Set (or clear, with null) the signed-in user id on every sink.
+  static Future<void> setUserId(String? userId) async {
+    try {
+      await AnalyticsService.instance.setUserId(userId);
+    } catch (e) {
+      debugPrint('Analytics: failed to set user id: $e');
+    }
+  }
+
+  /// Sticky Firebase user properties. Names and values are sanitised to
+  /// Firebase limits (25 properties, 24-char names, 36-char values).
+  static Future<void> setUserProperties(Map<String, Object?> properties) async {
+    try {
+      await AnalyticsService.instance.setUserProperties(properties);
+    } catch (e) {
+      debugPrint('Analytics: failed to set user properties: $e');
+    }
+  }
+
+  /// A value attached to EVERY event (e.g. is_premium, locale). Null removes it.
+  static void updateBaseAttribute(String key, Object? value) {
+    try {
+      AnalyticsService.instance.updateBaseAttribute(key, value);
+    } catch (e) {
+      debugPrint('Analytics: failed to update base attribute $key: $e');
+    }
+  }
+
+  /// Call from logout / delete-account.
+  static Future<void> clearAllUserIdentifiers() async {
+    try {
+      await AnalyticsService.instance.clearAllUserIdentifiers();
+    } catch (e) {
+      debugPrint('Analytics: failed to clear user identifiers: $e');
+    }
+  }
+}
