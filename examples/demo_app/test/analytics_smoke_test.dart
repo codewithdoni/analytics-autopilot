@@ -4,7 +4,6 @@ import 'package:demo_app/core/analytics/analytics_service.dart';
 import 'package:demo_app/repository/session_repository.dart';
 import 'package:demo_app/screens/home_screen.dart';
 import 'package:demo_app/screens/settings_screen.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
